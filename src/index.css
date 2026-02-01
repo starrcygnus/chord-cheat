@@ -11,6 +11,11 @@
     --root-glow: rgba(239, 68, 68, 0.7);
     /* Red for root */
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Dynamic Dimensions */
+    --wk-w: clamp(25px, 3.4vw, 50px);
+    --bk-w: calc(var(--wk-w) * 0.64);
+    --kb-h: clamp(150px, 25vh, 250px);
 }
 
 * {
@@ -36,10 +41,10 @@ body {
 #app {
     width: 100%;
     max-width: 1500px;
-    padding: 2rem;
+    padding: clamp(1rem, 3vw, 2rem);
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: clamp(1rem, 2vh, 2rem);
 }
 
 header {
@@ -48,7 +53,7 @@ header {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     font-weight: 800;
     background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
     -webkit-background-clip: text;
@@ -170,10 +175,11 @@ select:focus {
 
 .keyboard {
     position: relative;
-    height: 250px;
+    height: var(--kb-h);
     display: flex;
     margin: 0 auto;
     user-select: none;
+    width: min-content;
 }
 
 .key {
@@ -184,7 +190,7 @@ select:focus {
 }
 
 .key.white {
-    width: 50px;
+    width: var(--wk-w);
     height: 100%;
     background: var(--key-white);
     border: 1px solid #ccc;
@@ -192,11 +198,11 @@ select:focus {
 }
 
 .key.black {
-    width: 32px;
+    width: var(--bk-w);
     height: 60%;
     background: var(--key-black);
-    margin-left: -16px;
-    margin-right: -16px;
+    margin-left: calc(var(--bk-w) / -2);
+    margin-right: calc(var(--bk-w) / -2);
     z-index: 2;
     border-radius: 0 0 4px 4px;
 }
@@ -264,7 +270,7 @@ select:focus {
 .key.black .key-label {
     color: #eee;
     bottom: 5px;
-    font-size: 0.55rem;
+    font-size: clamp(0.4rem, 1vw, 0.55rem);
     margin-bottom: 0;
 }
 
