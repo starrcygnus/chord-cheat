@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chord Cheat | Visual Chord Reference</title>
+    <meta name="description" content="The ultimate visual mapping and intelligent chord logic tool for musicians.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>CHORD CHEAT</h1>
+            <p class="subtitle">Intelligent visual mapping for modern musicians</p>
+        </header>
+
+        <main>
+            <section class="controls-container">
+                <div class="input-group">
+                    <label for="root-select">Root</label>
+                    <select id="root-select">
+                        <option value="C">C</option>
+                        <option value="C#">C#</option>
+                        <option value="Db">Db</option>
+                        <option value="D">D</option>
+                        <option value="D#">D#</option>
+                        <option value="Eb">Eb</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="F#">F#</option>
+                        <option value="Gb">Gb</option>
+                        <option value="G">G</option>
+                        <option value="G#">G#</option>
+                        <option value="Ab">Ab</option>
+                        <option value="A">A</option>
+                        <option value="A#">A#</option>
+                        <option value="Bb">Bb</option>
+                        <option value="B">B</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="type-select">Chord Type</label>
+                    <select id="type-select">
+                        <option value="">Major (maj)</option>
+                        <option value="m">Minor (m)</option>
+                        <option value="7">Dominant 7th (7)</option>
+                        <option value="maj7">Major 7th (maj7)</option>
+                        <option value="m7">Minor 7th (m7)</option>
+                        <option value="dim">Diminished (dim)</option>
+                        <option value="dim7">Diminished 7th (dim7)</option>
+                        <option value="m7b5">Half-Diminished (m7b5)</option>
+                        <option value="sus2">Suspended 2 (sus2)</option>
+                        <option value="sus4">Suspended 4 (sus4)</option>
+                        <option value="6">Major 6th (6)</option>
+                        <option value="m6">Minor 6th (m6)</option>
+                        <option value="9">Dominant 9th (9)</option>
+                        <option value="maj9">Major 9th (maj9)</option>
+                        <option value="m9">Minor 9th (m9)</option>
+                        <option value="maj11">Major 11th (maj11)</option>
+                        <option value="m11">Minor 11th (m11)</option>
+                        <option value="11">Dominant 11th (11)</option>
+                        <option value="maj7#11">Major 7th (#11)</option>
+                        <option value="13">Dominant 13th (13)</option>
+                        <option value="aug">Augmented (aug)</option>
+                        <option value="alt">Altered (7alt)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="inversion-select">Inversion</label>
+                    <select id="inversion-select">
+                        <option value="0">Root Position</option>
+                        <option value="1">1st Inversion</option>
+                        <option value="2">2nd Inversion</option>
+                        <option value="3">3rd Inversion</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Scale Context</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <select id="scale-root-select" style="width: 40%; padding-right: 1rem;">
+                            <option value="">None</option>
+                            <option value="C">C</option>
+                            <option value="C#">C#</option>
+                            <option value="Db">Db</option>
+                            <option value="D">D</option>
+                            <option value="D#">D#</option>
+                            <option value="Eb">Eb</option>
+                            <option value="E">E</option>
+                            <option value="F">F</option>
+                            <option value="F#">F#</option>
+                            <option value="Gb">Gb</option>
+                            <option value="G">G</option>
+                            <option value="G#">G#</option>
+                            <option value="Ab">Ab</option>
+                            <option value="A">A</option>
+                            <option value="A#">A#</option>
+                            <option value="Bb">Bb</option>
+                            <option value="B">B</option>
+                        </select>
+                        <select id="scale-type-select" style="width: 60%;">
+                            <option value="major">Major</option>
+                            <option value="minor">Natural Minor</option>
+                            <option value="harmonic minor">Harmonic Minor</option>
+                            <option value="melodic minor">Melodic Minor</option>
+                            <option value="major pentatonic">Major Pentatonic</option>
+                            <option value="minor pentatonic">Minor Pentatonic</option>
+                            <option value="blues">Blues</option>
+                            <option value="dorian">Dorian</option>
+                            <option value="phrygian">Phrygian</option>
+                            <option value="lydian">Lydian</option>
+                            <option value="mixolydian">Mixolydian</option>
+                            <option value="locrian">Locrian</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Actions</label>
+                    <div class="button-group">
+                        <button id="play-btn" class="btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            Play
+                        </button>
+                        <button id="clear-btn" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="keyboard-wrapper">
+                <div id="keyboard" class="keyboard">
+                    <!-- Keys will be generated by JS -->
+                </div>
+            </section>
+
+            <section class="info-grid">
+                <div class="info-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M2 12h20"></path>
+                        </svg>
+                        Chord Notes
+                    </h3>
+                    <div id="note-display" class="note-tags">
+                        <!-- Notes will be displayed here -->
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        Theory Info
+                    </h3>
+                    <div id="theory-info">
+                        <p id="chord-name-display"
+                            style="font-weight: 600; color: var(--accent-primary); margin-bottom: 0.5rem;"></p>
+                        <p id="intervals-display" style="font-size: 0.9rem; color: var(--text-secondary);"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
