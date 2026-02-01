@@ -1,19 +1,40 @@
 {
   "name": "chord-cheat",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "main": "electron-main.cjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron:start": "electron .",
+    "electron:build": "vite build && electron-builder"
   },
   "devDependencies": {
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8",
     "vite": "^7.2.4"
   },
   "dependencies": {
     "lucide": "^0.563.0",
     "tonal": "^6.4.3",
     "tone": "^15.1.22"
+  },
+  "build": {
+    "appId": "com.starrcygnus.chordcheat",
+    "productName": "Chord Cheat",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron-main.cjs",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/vite.svg"
+    }
   }
 }
